@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	try {
 		if (std::equal(fname.rbegin(), fname.rbegin() + suffix.size(), suffix.rbegin(), suffix.rend())) {
 			is.open(argv[1]);
-			is.exceptions(0);
+			is.exceptions(static_cast<std::ios_base::iostate>(0));
 			int i;
 			while (is.good()) {
 				is >> i;
