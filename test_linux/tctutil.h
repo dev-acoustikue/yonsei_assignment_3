@@ -13,8 +13,6 @@
 //	Structure modified for generalized future use.
 //
 
-#pragma once
-
 #include <string>
 #include <chrono>
 #include <fstream>

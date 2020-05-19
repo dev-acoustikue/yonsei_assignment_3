@@ -5,7 +5,6 @@
 // 
 // For more repo, visit https://github.com/dev-acoustikue/
 
-#pragma once
 
 // asm3_bin.h
 //	This file contains a single function asm3_bin,

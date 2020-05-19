@@ -1,7 +1,5 @@
 // written by SukJoon Oh(2018142216)
 #include "quicksort.h"
-#include <iostream>
-#include <vector>
 
 void swap(int* a, int* b) {
 
