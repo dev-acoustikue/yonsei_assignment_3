@@ -41,11 +41,15 @@ int kthSmallestNaive(int *arr, size_t len, int k) {
 	if (k - 1 >= 0)
 		return arr[k - 1];
 
-	return 0;
+	if (k > len) 
+		return -1;
 }
 
 int kthSmallest(int *arr, size_t len, int k) {
 	// Fill me!
+
+	if (k > len)
+		return -1;
 
 	if (len > 1) {
 
@@ -74,8 +78,4 @@ int kthSmallest(int *arr, size_t len, int k) {
 		else
 			return kthSmallest(arr + i + 1, len - i - 1, k - i - 1);
 	}
-
-
-
-	return 0;
 }
