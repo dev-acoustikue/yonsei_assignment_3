@@ -43,6 +43,8 @@ int kthSmallestNaive(int *arr, size_t len, int k) {
 
 	if (k > len) 
 		return -1;
+    
+    return -2;
 }
 
 int kthSmallest(int *arr, size_t len, int k) {
@@ -50,32 +52,45 @@ int kthSmallest(int *arr, size_t len, int k) {
 
 	if (k > len)
 		return -1;
+    
+    else {
+        
+        if (len > 1) {
 
-	if (len > 1) {
+            int low = 0;
+            int high = len - 1;
+            int pivot = arr[high]; // pivot
 
-		int low = 0;
-		int high = len - 1;
-		int pivot = arr[high]; // pivot
+            int i = low; // Index of smaller element
 
-		int i = low; // Index of smaller element
+            for (int j = low; j <= high - 1; j++) {
+                if (arr[j] < pivot) {
 
-		for (int j = low; j <= high - 1; j++) {
-			if (arr[j] < pivot) {
+                    swap(&arr[i], &arr[j]);
+                    i++; // increment index of smaller element
+                }
+            }
 
-				swap(&arr[i], &arr[j]);
-				i++; // increment index of smaller element
-			}
-		}
+            swap(&arr[i], &arr[high]);
 
-		swap(&arr[i], &arr[high]);
+            if (k == i + 1)
+                return arr[i];
 
-		if (k == i + 1)
-			return arr[i];
+            else if (k < i + 1)
+                return kthSmallest(arr, i, k);
 
-		else if (k < i + 1)
-			return kthSmallest(arr, i, k);
-
-		else
-			return kthSmallest(arr + i + 1, len - i - 1, k - i - 1);
-	}
+            else
+                return kthSmallest(arr + i + 1, len - i - 1, k - i - 1);
+        
+        } else {
+            
+            if (len == k)
+                return *(arr);
+            
+            else
+                return -3;
+        }
+    }
+    
+    return -2;
 }
