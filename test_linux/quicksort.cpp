@@ -60,7 +60,7 @@ int kthSmallest(int *arr, size_t len, int k) {
 		int i = low; // Index of smaller element
 
 		for (int j = low; j <= high - 1; j++) {
-			if (arr[j] <= pivot) {
+			if (arr[j] < pivot) {
 
 				swap(&arr[i], &arr[j]);
 				i++; // increment index of smaller element
